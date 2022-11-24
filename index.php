@@ -88,14 +88,14 @@ Flight::route('GET /foods/@id', function ($id) {
 //POST
 Flight::route('POST /foods', function () {
     //recepecion datos
-    $name=(Flight::request()->data->name);
+    $nameco=(Flight::request()->data->nameco);
     $calorias=(Flight::request()->data->calorias);
     $imagen=(Flight::request()->data->imagen);
 
-    $sql="INSERT INTO foods (name,calorias,imagen) VALUES (?,?,?)";
+    $sql="INSERT INTO foods (nameco,calorias,imagen) VALUES (?,?,?)";
     //agregavalor
     $sentencia= Flight::db()->prepare($sql);
-    $sentencia->bindParam(1, $name);
+    $sentencia->bindParam(1, $nameco);
     $sentencia->bindParam(2, $calorias);
     $sentencia->bindParam(3, $imagen);
     $sentencia->execute();
@@ -103,14 +103,14 @@ Flight::route('POST /foods', function () {
 });
 //PUT
 Flight::route('PUT /users/@id', function ($id) {
-    $name=(Flight::request()->data->name);
+    $nameco=(Flight::request()->data->nameco);
     $calorias=(Flight::request()->data->calorias);
     $imagen=(Flight::request()->data->imagen);
     //no enviar id
-    $sql="UPDATE foods SET name=?, calorias=?, imagen=? WHERE id=?";
+    $sql="UPDATE foods SET nameco=?, calorias=?, imagen=? WHERE id=?";
     //modificavalor
     $sentencia= Flight::db()->prepare($sql);
-    $sentencia->bindParam(1, $name);
+    $sentencia->bindParam(1, $nameco);
     $sentencia->bindParam(2, $calorias);
     $sentencia->bindParam(3, $imagen);
     $sentencia->bindParam(4, $id);
