@@ -70,7 +70,7 @@ Flight::start();
 
 //datos de comidas
 //GET
-Flight::route('GET /comida', function () {
+Flight::route('GET /foods', function () {
     $sentencia= Flight::db()->prepare("SELECT * FROM `foods`");
     $sentencia->execute();
     $datos=$sentencia->fetchAll();
